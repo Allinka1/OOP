@@ -1,10 +1,12 @@
+from datetime import datetime
+import sys
+import traceback
+
 from models import Programmer, Recruiter, Vacancy, Candidate
+from unable_to_work_exception import UnableToWorkException
 
 
-if __name__ == '__main__':
-
-    print(__name__)
-
+def main():
     employee_1 = Programmer('Alinka', 'ddd@gmail.com', 100, ['Python', 'HTML', 'CSS', 'PostgreSQL'])
     employee_2 = Programmer('Nikita', 'lll@gmail.com', 500,  ['Python', 'GitHub'])
     recruiter_1 = Recruiter('Dasha', 'mmm@gmail.com', 100)
@@ -13,9 +15,19 @@ if __name__ == '__main__':
     candidate_3 = Candidate('Vladislav Limov', 'vlad@gmail.com', ['HTML', 'CSS', 'C++'], 'C++', 'junior')
     vacancy_1 = Vacancy('Python Developer', 'Python', 'middle')
     vacancy_2 = Vacancy('Ruby Developer', 'Ruby', 'senior')
+    candidate_1.work()
 
-    print(employee_2.check_salary())
-    alfa = Programmer.alfa_programmer(employee_1, employee_2)
-    print(alfa.tech_stack)
-    print(vacancy_1)
-    print(candidate_2)
+
+if __name__ == '__main__':
+    try:
+        main()
+    except(ValueError, UnableToWorkException) as err:
+        tb = sys.exc_info()[2]
+        error_class = err.__class__.__name__
+        tbinfo = traceback.format_tb(tb)[0]
+        error_message = f'{datetime.now()}: {error_class}, Traceback: {tbinfo}'
+        filename = './logs.txt'
+        f = open(filename, 'a')
+        f.write(str(error_message) + '\n')
+        f.close()
+

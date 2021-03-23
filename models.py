@@ -1,13 +1,32 @@
 import numpy as np
 from datetime import datetime, date, time
+from unable_to_work_exception import UnableToWorkException
 
 
 class Employee:
+
+    def save_email(self):
+        filename = './emails.txt'
+        f = open(filename, 'a')
+        f.write(str(self.email) + '\n')
+        f.close()
+
+    def validate_email(self):
+        filename = './emails.txt'
+        f = open(filename, 'r')
+        for stored_email in f:
+            print(stored_email)
+            if stored_email.replace("\n", "") == self.email:
+                raise ValueError('This email exists, please enter a new one')
+        f.close()
 
     def __init__(self, name, email, salary):
         self.name = name
         self.email = email
         self.salary = salary
+        # self.validate_email()
+        # self.save_email()
+
 
     def work(self):
         return('I come to the office')
@@ -76,6 +95,10 @@ class Candidate:
         self.technologies = technologies
         self.main_skill = main_skill
         self.main_skill_grade = main_skill_grade
+
+    def work(self):
+        print(UnableToWorkException)
+        raise UnableToWorkException('I’m not hired yet, lol')
 
 
 class Vacancy:
