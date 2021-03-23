@@ -30,4 +30,3 @@ if __name__ == '__main__':
         f = open(filename, 'a')
         f.write(str(error_message) + '\n')
         f.close()
-

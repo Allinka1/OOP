@@ -27,7 +27,6 @@ class Employee:
         # self.validate_email()
         # self.save_email()
 
-
     def work(self):
         return('I come to the office')
 
