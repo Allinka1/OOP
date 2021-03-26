@@ -1,3 +1,15 @@
 2021-03-23 21:00:44.860492: UnableToWorkException, Traceback:   File "app.py", line 23, in <module>
     main()
 
+2021-03-24 21:48:46.859171: UnableToWorkException, Traceback:   File "app.py", line 24, in <module>
+    main()
+
+2021-03-26 23:30:08.702787: ValueError, Traceback:   File "app.py", line 26, in <module>
+    main()
+
+2021-03-26 23:30:11.290198: ValueError, Traceback:   File "app.py", line 26, in <module>
+    main()
+
+2021-03-26 23:30:13.213762: ValueError, Traceback:   File "app.py", line 26, in <module>
+    main()
+

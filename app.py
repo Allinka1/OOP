@@ -5,7 +5,6 @@ import traceback
 from models import Programmer, Recruiter, Vacancy, Candidate
 from unable_to_work_exception import UnableToWorkException
 
-
 def main():
     employee_1 = Programmer('Alinka', 'ddd@gmail.com', 100, ['Python', 'HTML', 'CSS', 'PostgreSQL'])
     employee_2 = Programmer('Nikita', 'lll@gmail.com', 500,  ['Python', 'GitHub'])
@@ -15,7 +14,11 @@ def main():
     candidate_3 = Candidate('Vladislav Limov', 'vlad@gmail.com', ['HTML', 'CSS', 'C++'], 'C++', 'junior')
     vacancy_1 = Vacancy('Python Developer', 'Python', 'middle')
     vacancy_2 = Vacancy('Ruby Developer', 'Ruby', 'senior')
-    candidate_1.work()
+    # candidate_1.work()
+    # print(recruiter_1.full_info)
+    # print(employee_1.full_info)
+    # print(Candidate.from_csv('candidates.csv'))
+    print(Candidate.from_csv('https://bitbucket.org/ivnukov/lesson2/raw/master/candidates.csv'))
 
 
 if __name__ == '__main__':
@@ -30,3 +33,4 @@ if __name__ == '__main__':
         f = open(filename, 'a')
         f.write(str(error_message) + '\n')
         f.close()
+
